@@ -6,7 +6,7 @@
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
     <div id="app">
@@ -18,7 +18,12 @@
             <img v-bind:src="image">
           </div>
           <div class="product-info">
-            <h1>{{ product }}</h1>
+            <h1 v-if="fans > 50 ">{{ "Lord " + product }}</h1>
+            <h1 v-else>{{ product }}</h1>
+            <p v-if="fans > 5">Our dear leader</p>
+            <p v-else-if="fans <=5 && fans >0">Is he the real deal ?</p>
+            <p v-else>Filfy animal</p>
+            <p v-if="fans >=10 && isStreaming">ON LIVE</p>
           </div>
         </div>
       </div>
